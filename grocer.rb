@@ -1,3 +1,11 @@
+require 'pry'
+
+cart = [
+  {"AVOCADO" => {:price => 3.00, :clearance => true }},
+  {"AVOCADO" => {:price => 3.00, :clearance => true }},
+  {"KALE"    => {:price => 3.00, :clearance => false}}
+]
+
 def consolidate_cart(cart)
   new_hash = {}
   cart.each do |item|
@@ -12,8 +20,10 @@ def consolidate_cart(cart)
     end
   end
   new_hash
+  binding.pry
 end
 
+consolidate_cart(cart)
 
 def apply_coupons(cart, coupons)
   coupons.each do |coupon|
@@ -35,6 +45,7 @@ def apply_coupons(cart, coupons)
   end
   cart
 end
+
 
 def apply_clearance(cart)
   cart.keys.each do |item|
